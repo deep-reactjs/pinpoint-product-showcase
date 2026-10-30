@@ -6,7 +6,6 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { discountPercent, formatPrice, type Product } from "@/data/products";
-import { cn } from "@/lib/utils";
 
 interface ProductSheetProps {
   product: Product | null;
