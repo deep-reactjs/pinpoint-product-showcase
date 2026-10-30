@@ -3,7 +3,6 @@ import type Konva from "konva";
 import { Image as KonvaImage, Layer, Rect, Stage, Text, Transformer } from "react-konva";
 
 import { PRODUCTS, type Product } from "@/data/products";
-import { clamp01, newId, type Hotspot, type HotspotRect } from "@/lib/flyer-storage";
 import { useHtmlImage } from "@/hooks/use-html-image";
 
 interface FlyerEditorCanvasProps {
@@ -81,8 +80,8 @@ export default function FlyerEditorCanvas({
 
   const handleMouseDown = (event: Konva.KonvaEventObject<MouseEvent>) => {
     if (!drawProduct || scale === 0) return;
-    // Only start drawing on the flyer surface, not on an existing hotspot.
-    if (event.target.name() !== "stage-surface") return;
+    // The flyer image is non-listening, so a click on the surface targets the stage.
+    if (event.target.getStage() !== event.target) return;
     const position = stageRef.current?.getPointerPosition();
     if (!position) return;
     drawingRef.current = { startX: position.x, startY: position.y };
@@ -116,7 +115,6 @@ export default function FlyerEditorCanvas({
     };
     if (normalized.width < 0.02 || normalized.height < 0.02) return;
     onCreate(normalized);
-    void newId; // ids are minted by the parent page
   };
 
   return (
