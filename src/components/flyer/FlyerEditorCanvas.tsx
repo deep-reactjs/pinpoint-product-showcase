@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type Konva from "konva";
 import { Image as KonvaImage, Layer, Rect, Stage, Text, Transformer } from "react-konva";
 
-import { PRODUCTS, type Product } from "@/data/products";
+import { clamp01, type Hotspot, type HotspotRect } from "@/lib/flyer-storage";
 import { useHtmlImage } from "@/hooks/use-html-image";
 
 interface FlyerEditorCanvasProps {
