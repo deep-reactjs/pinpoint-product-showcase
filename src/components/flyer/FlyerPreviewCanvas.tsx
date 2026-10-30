@@ -171,9 +171,6 @@ export default function FlyerPreviewCanvas({
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
-          onTouchStart={handleMouseDown}
-          onTouchMove={handleMouseMove}
-          onTouchEnd={handleMouseUp}
         >
           <Layer scaleX={view.scale} scaleY={view.scale} x={view.x} y={view.y}>
             <KonvaImage image={image} width={stageWidth} height={stageHeight} listening={false} />
