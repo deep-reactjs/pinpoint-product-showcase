@@ -231,8 +231,6 @@ export default function FlyerEditorCanvas({
           </Layer>
         </Stage>
       )}
-      {/* Provide a hit surface name for the stage itself */}
-      <style>{`.konvajs-content .stage-surface { display: none; }`}</style>
     </div>
   );
 }
